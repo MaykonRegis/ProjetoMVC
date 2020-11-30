@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+form#form-login {
+   text-align: center;
+}
+
+input {
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+}
+
+
+button#btn-login {
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #3CEB88;
+    width: 150px;
+    height: 30px;
+    border: 0;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-top: 35px;
+}
+
+button#btn-resetar {
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #eb0f0f;
+    width: 150px;
+    height: 30px;
+    border: 0;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-top: 35px;
+}
+
+
+button#btn-login:hover {
+    color: white;
+}
+
+button#btn-resetar:hover {
+    color: white;
+}
+
+
+/*CONTAINER*/
+
+/*RODAPE*/
+
+
+
+/*RODAPE*/

@@ -1,0 +1,84 @@
+1-Criar o arquivo core e a classe 
+<?php
+
+    class Estrurura {
+        private $url;
+        private $controller;
+        private $method;
+        private $params = array();
+
+        private $usuario;
+        private $error;
+
+        public function __construct(){
+            //VERIFICAR SE TEM SESSÃO   
+        }
+
+        public function start($request){
+	    if(isset($request['url'])){
+		//var_dump($request);
+   	        $this->url = explode('/', $request['url']); // PARA QUEBRAR E TRANFORMA NUM ARRAY
+                //var_dump($this->url);
+	        $this->controller = ucfirst($this->url[0]).'Controller'; // PARA PEGAR SOMENTE A PRIMEIRA PAGINA OU METHODO
+                array_shift($this->url);// ´PARA APAGAR A PRIMEIRA POSICAO DA VARIAVEL 
+                $this->method = $this->url[0]; 
+                array_shift($this->url); // PARA APAGAR NOVAMENTE 
+
+                $this->params = $this->url; // PARA OQUE VINHER DEPOIS DAS BARRA NA URL
+            }else {
+                $this->controller = 'HomeController';
+                $this->method = 'index';
+            }	
+
+            
+            var_dump($this->controller, $this->method, $this->params); // para visualizar
+            echo call_user_func(array(new $this->controller, $this->method), $this->params);
+        }
+		
+    }
+
+?>
+
+2-CRIAR A FUNÇÃO START COM O REQUEST DENTRO 
+CHAMA A REQUEST COM O VARDUMP PARA VER SE ESTA FUNCIONANDO
+3-CRIAR O SEGUINTE CODICO 
+$this->url = explode('/', $request['url']); // PARA QUEBRAR E TRANFORMA NUM ARRAY
+4-CRIAR O SEGUINTE CODIGO 
+$this->controller = ucfirst($this->url[0]).'Controller'; // PARA PEGAR SOMENTE A PRIMEIRA PAGINA OU METHODO
+5-CRIAR O SEGUINTE CODIGO 
+array_shift($this->url);// ´PARA APAGAR A PRIMEIRA POSICAO DA VARIAVEL 
+5-CRIAR O METODO 
+$this->method = $this->url[0]; 
+array_shift($this->url);
+6-CRIAR O SEUGINTE CODIGO
+$this->params = $this->url; // PARA OQUE VINHER DEPOIS DAS BARRA NA URL
+var_dump($this->controller, $this->method, $this->params); // PARA VISUALIZAR
+7-COLOCAR TODO ESSE CODIGO NUM IF
+ if($request['url']){
+
+}else {
+  $this->controller = 'HomeController';
+  $this->method = 'index';
+}
+8-NO ATRIBUTO PARAMS ADICIONAR UM ARRAY VAZIO A ELE 
+private $params = array();
+9-CRIAR A FUNCAO Call_user_func(array(new $this->controller, $this->method), $this->params);
+
+-------------------------------------------------------------------------------------
+NO ARQUIVO INDEX 
+
+1-CRIAR O SEGUINTE CODIGO NO INDEX PARA FAZER A CHAMADA DO TEMPLATE
+
+$template = file_get_contents('template/estrutura.html'); // CHAMDA DO TEMPLATE 
+$saida = ob_get_contents(); // COMANDO PARA ARMAZENA O CONTEUDO
+ob_end_clean();
+
+$tplpronto = str_replace('{{area_dinamica}}', $saida, $template); // COMANDI IRA EXIBIR O CONTEUDO NA AREA MARCADA NO TEMPLATE
+echo $tplpronto; // COMANDO PARA MOSTRAR A ESTRUTURA 
+
+2-CRIAR OS CONTROLLER DE CADA PAGINA E FAZER A CHAMADA 
+3-COLOCAR O TWIG NAS CONTROLLER E FAZER A CHAMADA DAS PAGINA 
+
+
+
+

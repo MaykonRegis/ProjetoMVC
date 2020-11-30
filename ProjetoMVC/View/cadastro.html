@@ -1,0 +1,30 @@
+<form action="http://localhost/projetoMvc/cadastro/cadastrar" method="POST" >
+    <label for="nome">Nome</label>
+    <input type="text" name="nome" id="nome" class="nome" placeholder="Digite seu Nome">
+            
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" class="email" placeholder="Digite seu E-MAIL">
+                
+    <label for="senha">Senha</label>
+    <input type="password" name="senha" id="senha" class="senha" placeholder="Digite sua Senha">
+            
+    <label for="Endereco">Endereco</label>
+    <input type="text" name="endereco" id="endereco" class="endereco" placeholder="Digite seu Endereço">
+            
+    <label for="celular">Celular</label>
+    <input type="tel" name="celular" id="celular" class="celular" placeholder="Digite seu Celular">
+            
+    <label for="cidade">Cidade</label>
+    <input type="text" name="cidade" id="cidade" class="nome" placeholder="Digite sua ciadade">
+            
+    <label for="cep">Cep</label>
+    <input type="text" name="cep" id="cep" class="nome" placeholder="Digite seu cep">
+
+    <button id="butao" type="button" value="cadastro" name="cadastro">Cadastro</button>
+    <button id="butao" type="button" value="resetar" name="resetar">Resetar</button>
+    <button id="butao" type="button" value="login" name="login">Login</button>
+    {% if error != '' %}
+        <span class="msg"><i class="fas fa-exclamation-triangle"></i>Dados já Cadastrados</span>
+    {% endif %}
+</form>
+   

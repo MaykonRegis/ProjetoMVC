@@ -1,0 +1,18 @@
+
+<link rel="stylesheet" href="Css/estiloLogin.css">
+<form action="http://localhost/ProjetoMvc/login/logar" method="POST" id="form-login">
+    <h2>Faca seu Login</h2>
+    <label for="email"></label>
+    <input type="email" name="email" id="email" class="email" placeholder="Seu E-MAIL">
+    
+    <label for="senha"></label>
+    <input type="password" name="senha" id="senha" class="senha" placeholder="********">
+
+    <button id="btn-login" type="button" value="cadastro" name="cadastro">Entrar</button>
+    <button id="btn-resetar" type="button" value="cadastro" name="cadastro">Resetar</button>
+    {% if error != '' %}
+        <span class="msg"><i class="fas fa-exclamation-triangle"></i>Tentativa Invalida</span>
+    {% endif %}
+</form>
+
+  
